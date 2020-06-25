@@ -157,6 +157,9 @@ namespace Model_Splitter
             String srv = dest + "/srv-side";
             Directory.CreateDirectory(srv);
 
+			String fdl = dest + "/fdl-side";
+			Directory.CreateDirectory(fdl);
+
 			using (StreamWriter file = new StreamWriter(dest + "/paths.txt", false))
             {
                 foreach (string full in data.list)
@@ -170,9 +173,6 @@ namespace Model_Splitter
 
 					if (compress)
                     {
-						String fdl = dest + "/fdl-side";
-						Directory.CreateDirectory(fdl);
-
 						dest = fdl + cut;
 						string bzip = dest + ".bz2";
 						if (File.Exists(bzip))
