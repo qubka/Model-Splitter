@@ -1,0 +1,14 @@
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\bin\Debug\Model Splitter.exe.config
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\bin\Debug\Model Splitter.exe
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\bin\Debug\Model Splitter.pdb
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\obj\Debug\Model Splitter.csprojAssemblyReference.cache
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\obj\Debug\Model_Splitter.Properties.Resources.resources
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\obj\Debug\Model Splitter.csproj.GenerateResource.cache
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\obj\Debug\Model Splitter.csproj.CoreCompileInputs.cache
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\obj\Debug\Model Splitter.exe
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\obj\Debug\Model Splitter.pdb
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\obj\Debug\Model_Splitter.FormSplitter.resources
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\bin\Debug\ICSharpCode.SharpZipLib.pdb
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\qubka\source\repos\Model Splitter\Model Splitter\obj\Debug\Model Splitter.csproj.CopyComplete
