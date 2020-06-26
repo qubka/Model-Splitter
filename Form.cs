@@ -164,6 +164,11 @@ namespace Model_Splitter
             {
                 foreach (string full in data.list)
                 {
+					if (!File.Exists(full))
+                    {
+						continue;
+                    }
+
                     string cut = full.Substring(size);
                     file.WriteLine(cut.Replace("\\", "/"));
 

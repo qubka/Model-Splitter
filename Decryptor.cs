@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Model_Splitter
@@ -13,7 +16,7 @@ namespace Model_Splitter
 		 *
 		 * @param model     The model path.
 		 * @return          The root folder and the array list of appropriate files.
-		 **/
+		 */
 		public static (string root, ArrayList list) ReadFile(string model)
 		{
 			// Initialize variables
@@ -106,7 +109,7 @@ namespace Model_Splitter
 					format = path.LastIndexOf('\\');
 
 					// Validate no format
-					if (format != -1)
+					if (format != -1) // str.IndexOfAny(Path.GetInvalidPathChars()) != -1
 					{
 						// Format full path to directory
 						path = root + "\\materials\\" + path;
@@ -127,11 +130,10 @@ namespace Model_Splitter
 								}
 
 								// Precache model textures
-								if (ReadTextures(root, full, texList))
-                                {
-									// Push data into array
-									matList.Add(full);
-								}
+								ReadTextures(root, full, texList);
+                                
+								// Push data into array
+								matList.Add(full);
 							}
 						}
 					}
@@ -147,11 +149,10 @@ namespace Model_Splitter
 						}
 
 						// Precache model textures
-						if (ReadTextures(root, path, texList))
-                        {
-							// Push data into array
-							matList.Add(path);
-						}
+						ReadTextures(root, path, texList);
+                        
+						// Push data into array
+						matList.Add(path);
 					}
 				}
 
@@ -171,7 +172,7 @@ namespace Model_Splitter
 		 * @param texture   The texture path.
 		 * @param texList   The output array.
 		 * @return          True if was found, false otherwise.
-		 **/
+		 */
 		static bool ReadTextures(string root, string texture, ArrayList texList)
 		{
 			// If doesn't exist stop
@@ -235,7 +236,7 @@ namespace Model_Splitter
 		 *
 		 * @param line      The given path.
 		 * @return          The root path.
-		 **/
+		 */
 		static string GetRootFolder(string path)
 		{
 			// Initialize variables
@@ -262,7 +263,7 @@ namespace Model_Splitter
 		 *
 		 * @param line      The given line.
 		 * @return          The output string.
-		 **/
+		 */
 		static string StripComments(string line)
 		{
 			var regex = @"(@(?:""[^""]*"")+|""(?:[^""\n\\]+|\\.)*""|'(?:[^'\n\\]+|\\.)*')|//.*|/\*(?s:.*?)\*/";
@@ -272,17 +273,33 @@ namespace Model_Splitter
 		/**
 		 * @brief Reads the null terminated string.
 		 *
-		 * @param stream    The given stream.
+		 * @param reader    The given reader.
 		 * @return          The output string.
-		 **/
-		static string ReadNullTerminatedString(BinaryReader stream)
+		 */
+		static string ReadNullTerminatedString(BinaryReader reader)
 		{
 			string str = ""; char ch;
-			while ((int)(ch = stream.ReadChar()) != 0)
+			while ((int)(ch = reader.ReadChar()) != 0)
 			{
 				str += ch;
 			}
 			return str;
 		}
+
+		/**
+		 * 
+		 */
+		/*public int Read(BinaryReader reader, byte[] buf, int off, int count)
+		{
+			int read = 0;
+			while (read < count)
+			{
+				int toread = count - read;
+				int portion = reader.BaseStream.Read(buf, off, toread);
+				read += portion;
+				off += portion;
+			}
+			return read;
+		}*/
 	}
 }
